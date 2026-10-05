@@ -1,0 +1,30 @@
+using UnityEngine;
+using Game.Core;
+
+namespace Game.AnimationSystem
+{
+    public class AnimationHandler
+    {
+        private readonly Animator _animator;
+        private readonly AnimationLibrary _animationLibrary;
+
+        public AnimationHandler(Animator animator, AnimationLibrary animationLibrary)
+        {
+            _animator = animator;
+            _animationLibrary = animationLibrary;
+        }
+
+        public void SetBool(AnimationType animationType, bool state)
+        {
+            bool animationFound = _animationLibrary.TryGetHash(animationType, out int hash);
+
+            if (!animationFound) return;
+
+            if (state == _animator.GetBool(hash)) return;
+
+            _animator.SetBool(hash, state);
+        }
+    }
+
+}
+

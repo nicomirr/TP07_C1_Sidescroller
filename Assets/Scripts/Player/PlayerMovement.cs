@@ -1,0 +1,25 @@
+using UnityEngine;
+using Game.Data;
+using Game.Core;
+using Game.AnimationSystem;
+
+namespace Game.Player
+{
+    public class PlayerMovement
+    {        
+        private readonly Rigidbody2D _rb;
+        private readonly float _movementSpeed;
+
+
+        public PlayerMovement(Rigidbody2D rb, PlayerConfigSo data)
+        {
+            _rb = rb;
+            _movementSpeed = data.MovementSpeed;
+        }
+
+        public void Move(float direction)
+        {
+            _rb.linearVelocity = new Vector2(direction * _movementSpeed, _rb.linearVelocityY);           
+        }      
+    }
+}

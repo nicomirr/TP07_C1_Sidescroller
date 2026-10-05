@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801723e339cfc494ca0ecd5abeef4dc2, type: 3}
+  m_Name: PlayerConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.PlayerConfigSo
+  _fsmTransitionsData: {fileID: 0}
+  _animationsConfig: {fileID: 11400000, guid: cb31d864f7af1974ab521f1661fff2fd, type: 2}
+  _powerUpsData: {fileID: 0}
+  _audioConfigData: {fileID: 11400000, guid: 3048f0c2a3b397f42899fddf294278ed, type: 2}
+  _damageFlickerData: {fileID: 0}
+  _maxHealth: 0
+  _maxInitialHealth: 0
+  _gravityData: {fileID: 11400000, guid: 423831a7d47436544ae32daf101e80e7, type: 2}
+  _movementSpeed: 8
+  _jumpData: {fileID: 11400000, guid: 8aaac7ef7ca02a745b5719f03def6ff9, type: 2}
+  _groundCheckDistance: 0.2
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
