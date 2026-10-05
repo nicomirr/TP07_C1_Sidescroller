@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f841a28594c344d9b4eaab0296c18c, type: 3}
   m_Name: PlayerAnimationConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AnimationConfigSo
-  _animations:
-  - {fileID: 11400000, guid: ee32b3405a08d334490326c3408fe5ed, type: 2}
-  - {fileID: 11400000, guid: f0bb6993a59da7549ad281e3cc66a19b, type: 2}
-  - {fileID: 11400000, guid: 282a82b4440580843857ed72da0d03a4, type: 2}
-  - {fileID: 11400000, guid: 833ff316382828e4d982243f2843bfc7, type: 2}
+  _animations: []

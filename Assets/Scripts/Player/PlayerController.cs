@@ -60,7 +60,8 @@ namespace Game.Player
         private void Update()
         {
             _playerFacing.FlipPlayer(_playerInputs.Direction);
-
+            _animationHandler.SetFloat(AnimationType.PlayerDirection, _playerFacing.IsFacingRight ? 1f : -1f);
+            
             HandleJump();
         }
 
@@ -81,14 +82,7 @@ namespace Game.Player
             if (_playerInputs.JumpPressed && _playerGroundCheck.IsGrounded)
             {
                 _playerJump.Jump();
-
-                //CAMBIAR A FLOAT ESTO (O NO YA QUE USO PLAYERFACING) Y TAMBIEN MOVEMENT  Y ARREGLAR ANIMATOR
-                //EVITAR CAMBIO DE DIRECCION EN AIRE (PLAYER FACING)
-
-                if(_playerFacing.IsFacingRight)
-                    _animationHandler.SetBool(AnimationType.PlayerJumpRight, true);
-                else
-                    _animationHandler.SetBool(AnimationType.PlayerJumpLeft, true);             
+                _animationHandler.SetBool(AnimationType.PlayerIsJumping, true);        
             }
 
             _playerGravity.UpdateGravity();
@@ -96,16 +90,14 @@ namespace Game.Player
 
         private void HandleLand()
         {
-            _animationHandler.SetBool(AnimationType.PlayerJumpRight, false);
-            _animationHandler.SetBool(AnimationType.PlayerJumpLeft, false);
+            _animationHandler.SetBool(AnimationType.PlayerIsJumping, false);            
         }
 
         private void HandleMovement()
         {
             _playerMovement.Move(_playerInputs.Direction);
 
-            _animationHandler.SetBool(AnimationType.PlayerRunRight, _playerInputs.Direction > 0);
-            _animationHandler.SetBool(AnimationType.PlayerRunLeft, _playerInputs.Direction < 0);
+            _animationHandler.SetBool(AnimationType.PlayerIsMoving, _playerInputs.Direction != 0);
         }        
     }
 }

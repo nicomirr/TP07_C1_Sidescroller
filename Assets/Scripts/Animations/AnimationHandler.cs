@@ -14,6 +14,17 @@ namespace Game.AnimationSystem
             _animationLibrary = animationLibrary;
         }
 
+        public void SetFloat(AnimationType animationType, float value)
+        {
+            bool animationFound = _animationLibrary.TryGetHash(animationType, out int hash);
+
+            if (!animationFound) return;
+
+            if (value == _animator.GetFloat(hash)) return;
+
+            _animator.SetFloat(hash, value);
+        }
+
         public void SetBool(AnimationType animationType, bool state)
         {
             bool animationFound = _animationLibrary.TryGetHash(animationType, out int hash);
