@@ -12,6 +12,7 @@ namespace Game.Player
         public PlayerFacing(Transform playerTransform)
         {
             _playerTransform = playerTransform;
+            _isFacingRight = true;
         }
 
         public void FlipPlayer(float direction)
@@ -20,7 +21,7 @@ namespace Game.Player
 
             _isFacingRight = direction > 0;
 
-            _playerTransform.localScale = new Vector3(Mathf.Sign(direction), _playerTransform.localScale.y, 1);
+            _playerTransform.right = _isFacingRight ? Vector3.right : Vector3.left;
         }
     }
 }

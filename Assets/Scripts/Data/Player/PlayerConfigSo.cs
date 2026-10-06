@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Core;
 
 namespace Game.Data
 {
@@ -10,6 +11,9 @@ namespace Game.Data
 
         [SerializeField] private AnimationConfigSo _animationsConfig;
         public AnimationConfigSo AnimationsConfig => _animationsConfig;
+
+        [SerializeField] private ThrowableType _initialThrowableType;
+        public ThrowableType InitialThrowableType => _initialThrowableType;
 
         [SerializeField] private PowerUpsDataSo _powerUpsData;
         public PowerUpsDataSo PowerUpsData => _powerUpsData;

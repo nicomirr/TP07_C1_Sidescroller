@@ -17,6 +17,16 @@
                     "priority": 0
                 },
                 {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "8b72f61f-e905-4657-85ae-211cfe516c79",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "356e58f8-41ab-4cda-8b11-8ccc7de1271c",
@@ -104,6 +114,28 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b940effe-e1d8-48e2-8d45-be76401c7321",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6ed0a0b-0c52-4f1d-8d18-edbf9cdc88ad",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

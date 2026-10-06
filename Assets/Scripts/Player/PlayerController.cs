@@ -13,6 +13,8 @@ namespace Game.Player
     {
         [SerializeField] private PlayerConfigSo _data;
 
+        private PlayerAnimationEvents _playerAnimationEvents; 
+
         private PlayerInputs _playerInputs;
         private AnimationHandler _animationHandler;
         private PlayerFacing _playerFacing;
@@ -20,9 +22,12 @@ namespace Game.Player
         private PlayerJump _playerJump;
         private PlayerGroundCheck _playerGroundCheck;
         private PlayerGravity _playerGravity;
+        private PlayerThrow _playerThrow;
 
         private void Awake()
         {
+            _playerAnimationEvents = GetComponentInChildren<PlayerAnimationEvents>();
+
             _playerInputs = new PlayerInputs();
 
             AnimationLibrary animationLibrary = new AnimationLibrary(_data.AnimationsConfig, this.gameObject);
@@ -45,10 +50,14 @@ namespace Game.Player
             _playerGroundCheck = new PlayerGroundCheck(groundCheck, _data);
 
             _playerGravity = new PlayerGravity(rb, _data);
+
+            _playerThrow = new PlayerThrow();
         }
 
         private void OnEnable()
         {            
+            _playerAnimationEvents.OnThrowFinished += HandleThrowFinished;
+
             _playerGroundCheck.OnJustLanded += HandleLand;
         }
 
@@ -63,10 +72,13 @@ namespace Game.Player
             _animationHandler.SetFloat(AnimationType.PlayerDirection, _playerFacing.IsFacingRight ? 1f : -1f);
             
             HandleJump();
+            HandleThrow();
         }
 
         private void OnDisable()
         {
+            _playerAnimationEvents.OnThrowFinished -= HandleThrowFinished;
+
             _playerGroundCheck.OnJustLanded -= HandleLand;
 
             _playerInputs.Deinitialize();
@@ -93,12 +105,24 @@ namespace Game.Player
             _animationHandler.SetBool(AnimationType.PlayerIsJumping, false);            
         }
 
+        private void HandleThrow()
+        {
+            if (!_playerInputs.ThrowPressed) return;
+
+            _animationHandler.SetBool(AnimationType.PlayerIsThrowing, true);
+        }
+        private void HandleThrowFinished()
+        {
+            _animationHandler.SetBool(AnimationType.PlayerIsThrowing, false);
+        }
+
         private void HandleMovement()
         {
             _playerMovement.Move(_playerInputs.Direction);
 
             _animationHandler.SetBool(AnimationType.PlayerIsMoving, _playerInputs.Direction != 0);
-        }        
+        }              
+
     }
 }
 

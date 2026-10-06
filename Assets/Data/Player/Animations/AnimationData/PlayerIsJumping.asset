@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02317bd96b307bf4fbd5ea06f5e49afc, type: 3}
   m_Name: PlayerIsJumping
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AnimationDataSo
-  _animationType: 2
+  _animationType: 3
   _animationName: IsJumping

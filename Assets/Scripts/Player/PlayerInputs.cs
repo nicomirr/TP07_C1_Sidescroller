@@ -7,11 +7,15 @@ namespace Game.Player
     {
         public bool JumpPressed => _jumpAction.WasPressedThisFrame();
         public bool JumpReleased => _jumpAction.WasReleasedThisFrame();
+
+        public bool ThrowPressed => _throwAction.WasPressedThisFrame();
+
         public float Direction => _movementAction.ReadValue<Vector2>().x;
 
         private readonly GameControls _playerControls;
 
         private InputAction _jumpAction;
+        private InputAction _throwAction;
         private InputAction _movementAction;
 
         public PlayerInputs()
@@ -19,6 +23,7 @@ namespace Game.Player
             _playerControls = new GameControls();
 
             _jumpAction = _playerControls.Player.Jump;
+            _throwAction = _playerControls.Player.Throw;
             _movementAction = _playerControls.Player.Movement;
 
             EnablePlayerInputs();

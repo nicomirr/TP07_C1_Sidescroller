@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ANIM_PlayerJumpLeft
+  m_Name: PlayerIdleThrowRight
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 4177420724285586524, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
+      value: {fileID: 1762168041924023313, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
     - time: 0.083333336
-      value: {fileID: 215384808139475110, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
+      value: {fileID: 4735685810309424226, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
     - time: 0.16666667
-      value: {fileID: 5790514298768354625, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
+      value: {fileID: 9042538573386895476, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
     - time: 0.25
-      value: {fileID: 9118640213880272845, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
+      value: {fileID: 3951301139701845358, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
     - time: 0.33333334
-      value: {fileID: 7202938326929550008, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
+      value: {fileID: -7428370044651902393, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,11 +52,11 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 4177420724285586524, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
-    - {fileID: 215384808139475110, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
-    - {fileID: 5790514298768354625, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
-    - {fileID: 9118640213880272845, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
-    - {fileID: 7202938326929550008, guid: 0801a9e59cf78c047806e39ca989f24b, type: 3}
+    - {fileID: 1762168041924023313, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
+    - {fileID: 4735685810309424226, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
+    - {fileID: 9042538573386895476, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
+    - {fileID: 3951301139701845358, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
+    - {fileID: -7428370044651902393, guid: 262f69af97e24584b885eebb36e7e9bd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -81,4 +81,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.41666666
+    functionName: OnThrowFinishedAnimEvent
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

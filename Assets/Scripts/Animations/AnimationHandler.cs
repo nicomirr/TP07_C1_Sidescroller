@@ -35,6 +35,8 @@ namespace Game.AnimationSystem
 
             _animator.SetBool(hash, state);
         }
+
+      
     }
 
 }
