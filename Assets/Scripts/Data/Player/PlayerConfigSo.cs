@@ -12,6 +12,9 @@ namespace Game.Data
         [SerializeField] private AnimationConfigSo _animationsConfig;
         public AnimationConfigSo AnimationsConfig => _animationsConfig;
 
+        [SerializeField] private ThrowableFactoryDataSo _throwablesFactoryData;
+        public ThrowableFactoryDataSo ThrowablesFactoryData => _throwablesFactoryData;
+
         [SerializeField] private ThrowableType _initialThrowableType;
         public ThrowableType InitialThrowableType => _initialThrowableType;
 

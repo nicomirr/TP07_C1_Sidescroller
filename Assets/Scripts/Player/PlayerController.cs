@@ -6,6 +6,7 @@ using Game.Core;
 using Game.Data;
 using Game.Marker;
 using Game.ParticleEffects;
+using Game.Throwables;
 
 namespace Game.Player
 {
@@ -51,7 +52,11 @@ namespace Game.Player
 
             _playerGravity = new PlayerGravity(rb, _data);
 
-            _playerThrow = new PlayerThrow();
+            ThrowableFactory throwableFactory = new ThrowableFactory(_data.ThrowablesFactoryData);
+
+            ThrowablePool throwablePool = new ThrowablePool(throwableFactory);
+
+            _playerThrow = new PlayerThrow(throwablePool, GetComponent<ThrowableOriginMarker>().transform, _data);
         }
 
         private void OnEnable()
@@ -113,6 +118,8 @@ namespace Game.Player
         }
         private void HandleThrowFinished()
         {
+            _playerThrow.Throw(_playerFacing.IsFacingRight ? 1 : -1);
+
             _animationHandler.SetBool(AnimationType.PlayerIsThrowing, false);
         }
 

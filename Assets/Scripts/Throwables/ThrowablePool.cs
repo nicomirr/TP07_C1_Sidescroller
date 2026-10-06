@@ -6,15 +6,25 @@ namespace Game.Throwables
 {
     public class ThrowablePool
     {
-        private Dictionary<ThrowableType, List<GameObject>> _throwables;
+        private readonly ThrowableFactory _throwableFactory;
 
-        public GameObject RequestThrowable(ThrowableType type)
+        private readonly Dictionary<ThrowableType, List<Throwable>> _throwables = new();
+
+        public ThrowablePool(ThrowableFactory throwableFactory)
         {
-            List<GameObject> currentThrowables = _throwables[type];
+            _throwableFactory = throwableFactory;
+        }
 
-            foreach (GameObject throwable in currentThrowables)
+        public Throwable RequestThrowable(ThrowableType type)
+        {
+            if(!_throwables.ContainsKey(type))
+                _throwables.Add(type, _throwableFactory.CreatePool(type));            
+
+            List<Throwable> currentThrowables = _throwables[type];
+                        
+            foreach (Throwable throwable in currentThrowables)
             {
-                if(!throwable.activeSelf)
+                if(!throwable.gameObject.activeSelf)
                     return throwable;
             }
 
