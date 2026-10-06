@@ -76,9 +76,14 @@ namespace Game.Player
 
         private void Update()
         {
-            HandlePlayerDirection();            
-            HandleJump();
+            HandlePlayerDirection();
+
+            _playerJump.UpdateCoyoteTime(_playerGroundCheck.IsGrounded);
+            HandleJump(); 
+            
+            _playerThrow.UpdateThrowTimer();
             HandleThrow();
+
             HandleThrowMovement();
         }
 
@@ -104,7 +109,7 @@ namespace Game.Player
             if (_playerInputs.JumpReleased && !_playerGroundCheck.IsGrounded)
                 _playerJump.CutJump();
 
-            if (_playerInputs.JumpPressed && _playerGroundCheck.IsGrounded)
+            if (_playerInputs.JumpPressed && _playerJump.CanJump)
             {
                 _playerJump.Jump();
                 _animationHandler.SetBool(AnimationType.PlayerIsJumping, true);        
@@ -120,7 +125,7 @@ namespace Game.Player
 
         private void HandleThrow()
         {
-            if (!_playerInputs.ThrowPressed) return;
+            if (!_playerInputs.ThrowPressed || !_playerThrow.CanThrow) return;
 
             _animationHandler.SetBool(AnimationType.PlayerIsThrowing, true);
         }

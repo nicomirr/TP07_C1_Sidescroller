@@ -15,6 +15,10 @@ namespace Game.Player
         private readonly ParticleEffectsPlayer _particleEffectsPlayer;
         private readonly AudioPlayer _audioPlayer;
 
+        private float _coyoteTimer;
+
+        public bool CanJump => _coyoteTimer > 0;
+
         public PlayerJump(Rigidbody2D rb, PlayerConfigSo data, ParticleEffectsPlayer particleEffectsPlayer,
             AudioPlayer audioPlayer)
         {
@@ -25,8 +29,18 @@ namespace Game.Player
             _audioPlayer = audioPlayer;
         }
 
+        public void UpdateCoyoteTime(bool isGrounded)
+        {
+            if (isGrounded)
+                _coyoteTimer = _data.CoyoteTime;
+            else
+                _coyoteTimer -= Time.deltaTime;
+        }
+
         public void Jump()
         {
+            _coyoteTimer = 0;
+
             _rb.AddForce(Vector2.up * _data.JumpForce, ForceMode2D.Impulse);
 
             //_particleEffectsPlayer.PlayEffect(ParticleEffectType.Jump);

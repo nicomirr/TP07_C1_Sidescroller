@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918286cb43c88f745857306b5ff16b81, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ThrowableDataSo
-  _horizontalSpeed: 7
-  _verticalSpeed: 10
+  _lifeTime: 3
+  _horizontalSpeed: 15
+  _verticalSpeed: 18

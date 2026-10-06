@@ -9,9 +9,25 @@ namespace Game.Throwables
 
         private Rigidbody2D _rb;
 
+        private float _throwableTimer;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void OnEnable()
+        {
+            _throwableTimer = 0;
+        }
+
+        private void Update()
+        {
+            _throwableTimer += Time.deltaTime;
+
+            if (_throwableTimer >= _data.LifeTime)
+                this.gameObject.SetActive(false);
+
         }
 
         public void Throw(Vector2 startingPos, float direction, Vector2 throwerVelocity)

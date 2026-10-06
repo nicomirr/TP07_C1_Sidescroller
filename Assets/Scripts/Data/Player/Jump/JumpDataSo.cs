@@ -5,6 +5,9 @@ namespace Game.Data
     [CreateAssetMenu(fileName = "JumpDataSo", menuName = "Scriptable Objects/JumpDataSo")]
     public class JumpDataSo : ScriptableObject
     {
+        [SerializeField] private float _coyoteTime;
+        public float CoyoteTime => _coyoteTime;
+
         [SerializeField] private float _jumpForce;
         public float JumpForce => _jumpForce;
 

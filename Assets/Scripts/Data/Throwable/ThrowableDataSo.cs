@@ -5,6 +5,9 @@ namespace Game.Data
     [CreateAssetMenu(fileName = "ThrowableDataSo", menuName = "Scriptable Objects/ThrowableDataSo")]
     public class ThrowableDataSo : ScriptableObject
     {
+        [SerializeField] private float _lifeTime;
+        public float LifeTime => _lifeTime;
+
         [SerializeField] private float _horizontalSpeed;
         public float HorizontalSpeed => _horizontalSpeed;
 

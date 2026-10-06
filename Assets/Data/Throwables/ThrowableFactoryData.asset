@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c6d08f9813c0748bbae97c8f09470b, type: 3}
   m_Name: ThrowableFactoryData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ThrowableFactoryDataSo
-  _poolSize: 4
+  _poolSize: 5
   _throwablePrefabs:
   - {fileID: 11400000, guid: e58a865aaeb3fa34b850b13db071eb57, type: 2}

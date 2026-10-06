@@ -18,6 +18,9 @@ namespace Game.Data
         [SerializeField] private ThrowableType _initialThrowableType;
         public ThrowableType InitialThrowableType => _initialThrowableType;
 
+        [SerializeField] private float _throwCooldown;
+        public float ThrowCooldown => _throwCooldown;
+
         [SerializeField] private PowerUpsDataSo _powerUpsData;
         public PowerUpsDataSo PowerUpsData => _powerUpsData;
 
