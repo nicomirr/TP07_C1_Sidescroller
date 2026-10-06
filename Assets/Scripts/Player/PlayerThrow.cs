@@ -22,7 +22,7 @@ namespace Game.Player
             _currentThrowable = _data.InitialThrowableType;
         }
 
-        public void Throw(float direction)
+        public void Throw(float direction, Vector2 throwerVelocity)
         {
             Throwable throwable = _throwablePool.RequestThrowable(_currentThrowable);
 
@@ -34,7 +34,7 @@ namespace Game.Player
                         
             throwable.gameObject.SetActive(true);
 
-            throwable.Throw(_throwOrigin.position, direction);
+            throwable.Throw(_throwOrigin.position, direction, throwerVelocity);
         }
 
     }

@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000007525b796c92eed4e
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -537,30 +537,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1850685553182512005, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
-      propertyPath: m_Size.x
-      value: 0.58502054
-      objectReference: {fileID: 0}
-    - target: {fileID: 1850685553182512005, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
-      propertyPath: m_Size.y
-      value: 1.4678931
-      objectReference: {fileID: 0}
-    - target: {fileID: 1850685553182512005, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.21293092
-      objectReference: {fileID: 0}
-    - target: {fileID: 1850685553182512005, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.06652641
-      objectReference: {fileID: 0}
     - target: {fileID: 5156175835259768080, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6833376841393045353, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 3aac2f956c1b3e843adc5f4d4f23ddf8, type: 2}
     - target: {fileID: 8891307752018172959, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.05
@@ -604,28 +584,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8793242305626112215, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 36010132125166285}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
---- !u!1 &36010132125166284 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8793242305626112215, guid: 87f02e45f9b2692478ffc8d07d326b84, type: 3}
-  m_PrefabInstance: {fileID: 36010132125166283}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &36010132125166285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36010132125166284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a05078c1985e614a9e2d6379d843ff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationEvents
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

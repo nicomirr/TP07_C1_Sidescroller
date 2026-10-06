@@ -14,11 +14,16 @@ namespace Game.Throwables
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        public void Throw(Vector2 startingPos, float direction)
+        public void Throw(Vector2 startingPos, float direction, Vector2 throwerVelocity)
         {
             this.transform.position = startingPos;
 
-            _rb.linearVelocity = new Vector2(Mathf.Sign(direction) * _data.HorizontalSpeed, _data.VerticalSpeed);
+            _rb.linearVelocity = new Vector2(throwerVelocity.x + (Mathf.Sign(direction) * _data.HorizontalSpeed), _data.VerticalSpeed);
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }

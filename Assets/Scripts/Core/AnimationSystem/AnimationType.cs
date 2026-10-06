@@ -7,7 +7,8 @@ namespace Game.Core
         PlayerIsMoving,
         PlayerIsJumping,
         PlayerIsThrowing,
-        End = 5,
+        PlayerThrowMovement,
+        End = 6,
     }
 }
 

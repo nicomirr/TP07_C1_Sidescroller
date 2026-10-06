@@ -10,9 +10,12 @@ using Game.Throwables;
 
 namespace Game.Player
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerConfigSo _data;
+
+        private Rigidbody2D _rb;
 
         private PlayerAnimationEvents _playerAnimationEvents; 
 
@@ -27,6 +30,8 @@ namespace Game.Player
 
         private void Awake()
         {
+            _rb = GetComponent<Rigidbody2D>();
+
             _playerAnimationEvents = GetComponentInChildren<PlayerAnimationEvents>();
 
             _playerInputs = new PlayerInputs();
@@ -36,27 +41,25 @@ namespace Game.Player
 
             _playerFacing = new PlayerFacing(this.transform);
 
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
-            _playerMovement = new PlayerMovement(rb, _data);
+            _playerMovement = new PlayerMovement(_rb, _data);
 
             AudioPlayer audioPlayer = new AudioPlayer(_data.AudioConfigData, GetComponentInChildren<AudioSource>());
 
             List<ParticleEffect> effects = new(GetComponentsInChildren<ParticleEffect>());
             ParticleEffectsPlayer particleEffectsPlayer = new ParticleEffectsPlayer(effects);
 
-            _playerJump = new PlayerJump(rb, _data, particleEffectsPlayer, audioPlayer);
+            _playerJump = new PlayerJump(_rb, _data, particleEffectsPlayer, audioPlayer);
 
             Transform groundCheck = GetComponentInChildren<GroundCheckMarker>().transform;
             _playerGroundCheck = new PlayerGroundCheck(groundCheck, _data);
 
-            _playerGravity = new PlayerGravity(rb, _data);
+            _playerGravity = new PlayerGravity(_rb, _data);
 
             ThrowableFactory throwableFactory = new ThrowableFactory(_data.ThrowablesFactoryData);
 
             ThrowablePool throwablePool = new ThrowablePool(throwableFactory);
 
-            _playerThrow = new PlayerThrow(throwablePool, GetComponent<ThrowableOriginMarker>().transform, _data);
+            _playerThrow = new PlayerThrow(throwablePool, GetComponentInChildren<ThrowableOriginMarker>().transform, _data);
         }
 
         private void OnEnable()
@@ -73,11 +76,10 @@ namespace Game.Player
 
         private void Update()
         {
-            _playerFacing.FlipPlayer(_playerInputs.Direction);
-            _animationHandler.SetFloat(AnimationType.PlayerDirection, _playerFacing.IsFacingRight ? 1f : -1f);
-            
+            HandlePlayerDirection();            
             HandleJump();
             HandleThrow();
+            HandleThrowMovement();
         }
 
         private void OnDisable()
@@ -87,6 +89,12 @@ namespace Game.Player
             _playerGroundCheck.OnJustLanded -= HandleLand;
 
             _playerInputs.Deinitialize();
+        }
+
+        private void HandlePlayerDirection()
+        {
+            _playerFacing.FlipPlayer(_playerInputs.Direction);
+            _animationHandler.SetFloat(AnimationType.PlayerDirection, _playerFacing.IsFacingRight ? 1f : -1f);
         }
 
         private void HandleJump()
@@ -116,9 +124,22 @@ namespace Game.Player
 
             _animationHandler.SetBool(AnimationType.PlayerIsThrowing, true);
         }
+        private void HandleThrowMovement()
+        {
+            float throwMovement;
+
+            if (!_playerGroundCheck.IsGrounded)
+                throwMovement = (int)ThrowMovement.Jump;
+            else if (_playerInputs.Direction != 0)
+                throwMovement = (int)ThrowMovement.Run;
+            else
+                throwMovement = (int)ThrowMovement.Idle; 
+
+            _animationHandler.SetFloat(AnimationType.PlayerThrowMovement, throwMovement);
+        }
         private void HandleThrowFinished()
         {
-            _playerThrow.Throw(_playerFacing.IsFacingRight ? 1 : -1);
+            _playerThrow.Throw(_playerFacing.IsFacingRight ? 1 : -1, _rb.linearVelocity);
 
             _animationHandler.SetBool(AnimationType.PlayerIsThrowing, false);
         }

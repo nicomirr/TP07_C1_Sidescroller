@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.PlayerConfigSo
   _fsmTransitionsData: {fileID: 0}
   _animationsConfig: {fileID: 11400000, guid: cb31d864f7af1974ab521f1661fff2fd, type: 2}
+  _throwablesFactoryData: {fileID: 11400000, guid: 4678ac8895a3f33468ec704bfd1b5d4a, type: 2}
+  _initialThrowableType: 1
   _powerUpsData: {fileID: 0}
   _audioConfigData: {fileID: 11400000, guid: 3048f0c2a3b397f42899fddf294278ed, type: 2}
   _damageFlickerData: {fileID: 0}
