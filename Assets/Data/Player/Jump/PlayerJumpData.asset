@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096ccc097efa69d40aa6bf1e29ccc261, type: 3}
   m_Name: PlayerJumpData
   m_EditorClassIdentifier: Assembly-CSharp::JumpDataSo
-  _coyoteTime: 0.12
+  _coyoteTime: 0.13
   _jumpForce: 15
   _jumpCutMultiplier: 0.3
