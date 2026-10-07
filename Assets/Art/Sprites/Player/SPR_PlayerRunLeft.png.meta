@@ -136,7 +136,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -156,9 +156,9 @@ TextureImporter:
       name: SPR_PlayerRunLeft_1
       rect:
         serializedVersion: 2
-        x: 11
+        x: 13
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -178,9 +178,9 @@ TextureImporter:
       name: SPR_PlayerRunLeft_2
       rect:
         serializedVersion: 2
-        x: 22
+        x: 26
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -200,9 +200,9 @@ TextureImporter:
       name: SPR_PlayerRunLeft_3
       rect:
         serializedVersion: 2
-        x: 33
+        x: 39
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -222,9 +222,9 @@ TextureImporter:
       name: SPR_PlayerRunLeft_4
       rect:
         serializedVersion: 2
-        x: 44
+        x: 52
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -244,9 +244,9 @@ TextureImporter:
       name: SPR_PlayerRunLeft_5
       rect:
         serializedVersion: 2
-        x: 55
+        x: 65
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -266,9 +266,9 @@ TextureImporter:
       name: SPR_PlayerRunLeft_6
       rect:
         serializedVersion: 2
-        x: 66
+        x: 78
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -288,9 +288,9 @@ TextureImporter:
       name: SPR_PlayerRunLeft_7
       rect:
         serializedVersion: 2
-        x: 77
+        x: 91
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -320,7 +320,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":11.0,"y":15.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":13.0,"y":15.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       SPR_PlayerRunLeft_0: -3336653749638987174
       SPR_PlayerRunLeft_1: 3853370918272981541

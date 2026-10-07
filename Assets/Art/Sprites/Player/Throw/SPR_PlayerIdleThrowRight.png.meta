@@ -125,12 +125,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPR_PlayerThrow_0
+      name: SPR_PlayerIdleThrowRight_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -138,21 +138,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1145d6d6f7a747810800000000000000
-      internalID: 1762168041924023313
+      spriteID: 2401c933665154847a5d8e6c51230326
+      internalID: 294024250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_PlayerThrow_1
+      name: SPR_PlayerIdleThrowRight_1
       rect:
         serializedVersion: 2
-        x: 11
+        x: 13
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -160,76 +160,76 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 264e95b572988b140800000000000000
-      internalID: 4735685810309424226
+      spriteID: 152d383f35cfacd4384f05a82b1221e0
+      internalID: -1907901373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_PlayerThrow_2
+      name: SPR_PlayerIdleThrowRight_2
       rect:
         serializedVersion: 2
-        x: 22
+        x: 26
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 9
-      pivot: {x: 0.591, y: 0.5}
+      pivot: {x: 0.577, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4705e7e4cec8d7d70800000000000000
-      internalID: 9042538573386895476
+      spriteID: 42c48c48f58b0964daa45e9a7e231730
+      internalID: -72998307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_PlayerThrow_3
+      name: SPR_PlayerIdleThrowRight_3
       rect:
         serializedVersion: 2
-        x: 33
+        x: 39
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 9
-      pivot: {x: 0.591, y: 0.5}
+      pivot: {x: 0.577, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e6d4680a377d5d630800000000000000
-      internalID: 3951301139701845358
+      spriteID: fc612f05f4978e545a1008a6918e8f92
+      internalID: 1218207164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_PlayerThrow_4
+      name: SPR_PlayerIdleThrowRight_4
       rect:
         serializedVersion: 2
-        x: 44
+        x: 52
         y: 0
-        width: 11
+        width: 13
         height: 15
       alignment: 9
-      pivot: {x: 0.409, y: 0.5}
+      pivot: {x: 0.423, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 74aee543dc029e890800000000000000
-      internalID: -7428370044651902393
+      spriteID: 5fb58d0c2d4d5fd42b83d4f9b12c7fe8
+      internalID: 1684979178
       vertices: []
       indices: 
       edges: []
@@ -248,13 +248,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":11.0,"y":15.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":13.0,"y":15.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SPR_PlayerThrow_0: 1762168041924023313
-      SPR_PlayerThrow_1: 4735685810309424226
-      SPR_PlayerThrow_2: 9042538573386895476
-      SPR_PlayerThrow_3: 3951301139701845358
-      SPR_PlayerThrow_4: -7428370044651902393
+      SPR_PlayerIdleThrowRight_0: 294024250
+      SPR_PlayerIdleThrowRight_1: -1907901373
+      SPR_PlayerIdleThrowRight_2: -72998307
+      SPR_PlayerIdleThrowRight_3: 1218207164
+      SPR_PlayerIdleThrowRight_4: 1684979178
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
