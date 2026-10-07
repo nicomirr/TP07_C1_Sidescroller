@@ -2,8 +2,9 @@ namespace Game.Core
 {
     public enum ParticleEffectType
     {
-        Jump,
-        Land, 
-        Destroyed
+        None = 0,
+        Impact,
+        End = 2
+
     }
 }

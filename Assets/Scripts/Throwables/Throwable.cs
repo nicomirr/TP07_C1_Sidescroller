@@ -1,5 +1,7 @@
 using UnityEngine;
 using Game.Data;
+using Game.Core;
+using Game.ParticleEffects;
 
 namespace Game.Throwables
 {
@@ -39,6 +41,7 @@ namespace Game.Throwables
 
         public void OnTriggerEnter2D(Collider2D collision)
         {
+            CommandBus.Send(new PlayParticleEffectCommand(ParticleEffectType.Impact, this.transform.position));
             this.gameObject.SetActive(false);
         }
     }
