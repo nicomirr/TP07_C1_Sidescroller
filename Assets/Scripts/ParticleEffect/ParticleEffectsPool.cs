@@ -4,31 +4,34 @@ using Game.Core;
 
 namespace Game.ParticleEffects
 {
-    public class ParticleEffectsPool : MonoBehaviour
+    public class ParticleEffectsPool 
     {
-        [SerializeField] private List<ParticleEffect> _particleEffects;
+        private readonly ParticleEffectFactory _particleEffectFactory;
 
-        private ParticleEffectsPlayer _particleEffectsPlayer;
-
-        private void Awake()
+        private readonly Dictionary<ParticleEffectType, List<ParticleSystem>> _particleEffects = new();
+       
+        public ParticleEffectsPool(ParticleEffectFactory particleEffectFactory)
         {
-            _particleEffectsPlayer = new ParticleEffectsPlayer(_particleEffects);                        
+            _particleEffectFactory = particleEffectFactory;            
         }
 
-        private void OnEnable()
+        public ParticleSystem RequestParticleSystem(ParticleEffectType type)
         {
-            CommandBus.Register<PlayParticleEffectCommand>(HandlePlayParticleEffect);
-        }
+            if (!_particleEffects.ContainsKey(type))
+                _particleEffects.Add(type, _particleEffectFactory.CreatePool(type));
 
-        private void OnDisable()
-        {
-            CommandBus.Unregister<PlayParticleEffectCommand>(HandlePlayParticleEffect);
-        }
+            List<ParticleSystem> currentParticleSystems = _particleEffects[type];
 
-        private void HandlePlayParticleEffect(PlayParticleEffectCommand command)
-        {
-            _particleEffectsPlayer.PlayEffect(command.Type, command.Position);
-        }
+            foreach (ParticleSystem particleSystem in currentParticleSystems)
+            {
+                if (!particleSystem.isPlaying)
+                    return particleSystem;
+            }
+
+            Debug.LogError("Error. El pool de particulas debe tener siempre un objeto disponible.");
+
+            return null;
+        }        
     }
 
 }

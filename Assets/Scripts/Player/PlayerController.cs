@@ -44,11 +44,8 @@ namespace Game.Player
             _playerMovement = new PlayerMovement(_rb, _data);
 
             AudioPlayer audioPlayer = new AudioPlayer(_data.AudioConfigData, GetComponentInChildren<AudioSource>());
-
-            List<ParticleEffect> effects = new(GetComponentsInChildren<ParticleEffect>());
-            ParticleEffectsPlayer particleEffectsPlayer = new ParticleEffectsPlayer(effects);
-
-            _playerJump = new PlayerJump(_rb, _data, particleEffectsPlayer, audioPlayer);
+                        
+            _playerJump = new PlayerJump(_rb, _data);
 
             Transform groundCheck = GetComponentInChildren<GroundCheckMarker>().transform;
             _playerGroundCheck = new PlayerGroundCheck(groundCheck, _data);

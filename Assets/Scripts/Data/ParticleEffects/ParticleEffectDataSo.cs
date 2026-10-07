@@ -8,6 +8,9 @@ namespace Game.Data
     {
         [SerializeField] private ParticleEffectType _particleEffectType;
         public ParticleEffectType ParticleEffectType => _particleEffectType;
+
+        [SerializeField] private ParticleSystem _particleSystemPrefab;
+        public ParticleSystem ParticleSystemPrefab => _particleSystemPrefab;
     }
 }
 

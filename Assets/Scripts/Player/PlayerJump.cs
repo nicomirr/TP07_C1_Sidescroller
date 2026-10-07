@@ -19,14 +19,10 @@ namespace Game.Player
 
         public bool CanJump => _coyoteTimer > 0;
 
-        public PlayerJump(Rigidbody2D rb, PlayerConfigSo data, ParticleEffectsPlayer particleEffectsPlayer,
-            AudioPlayer audioPlayer)
+        public PlayerJump(Rigidbody2D rb, PlayerConfigSo data)
         {
             _rb = rb;
             _data = data.JumpData;
-
-            _particleEffectsPlayer = particleEffectsPlayer;
-            _audioPlayer = audioPlayer;
         }
 
         public void UpdateCoyoteTime(bool isGrounded)
@@ -42,9 +38,6 @@ namespace Game.Player
             _coyoteTimer = 0;
 
             _rb.AddForce(Vector2.up * _data.JumpForce, ForceMode2D.Impulse);
-
-            //_particleEffectsPlayer.PlayEffect(ParticleEffectType.Jump);
-            //_audioPlayer.PlayAudio(AudioCategory.JumpSFX);
         }
 
         public void CutJump()
