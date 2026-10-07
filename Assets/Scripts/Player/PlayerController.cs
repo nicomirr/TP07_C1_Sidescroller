@@ -52,7 +52,7 @@ namespace Game.Player
 
             _playerGravity = new PlayerGravity(_rb, _data);
 
-            ThrowableFactory throwableFactory = new ThrowableFactory(_data.ThrowablesFactoryData);
+            ThrowableFactory throwableFactory = new ThrowableFactory(_data.ThrowablesFactoryData, GetComponentInChildren<ThrowablesPoolMarker>().transform);
 
             ThrowablePool throwablePool = new ThrowablePool(throwableFactory);
 

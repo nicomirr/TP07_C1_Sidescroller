@@ -41,7 +41,7 @@ namespace Game.Throwables
 
         public void OnTriggerEnter2D(Collider2D collision)
         {
-            CommandBus.Send(new PlayParticleEffectCommand(ParticleEffectType.Impact, this.transform.position));
+            CommandBus.Send(new PlayParticleEffectCommand(ParticleEffectType.RockImpact, this.transform.position));
             this.gameObject.SetActive(false);
         }
     }

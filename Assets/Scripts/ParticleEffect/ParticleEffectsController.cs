@@ -12,7 +12,7 @@ namespace Game.ParticleEffects
 
         private void Awake()
         {
-            ParticleEffectsPool particleEffectsPool = new ParticleEffectsPool(new ParticleEffectFactory(_data)); 
+            ParticleEffectsPool particleEffectsPool = new ParticleEffectsPool(new ParticleEffectFactory(_data, this.transform)); 
             _particleEffectsPlayer = new ParticleEffectsPlayer(particleEffectsPool);
         }
 

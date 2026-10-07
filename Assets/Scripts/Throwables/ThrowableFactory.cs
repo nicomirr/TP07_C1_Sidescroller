@@ -7,11 +7,13 @@ namespace Game.Throwables
 {
     public class ThrowableFactory
     {
+        private readonly Transform _parent;
+
         private readonly ThrowableFactoryDataSo _data;
 
         private readonly Dictionary<ThrowableType, Throwable> _throwablesPrefabs = new();
 
-        public ThrowableFactory(ThrowableFactoryDataSo data)
+        public ThrowableFactory(ThrowableFactoryDataSo data, Transform parent)
         {
             _data = data;
 
@@ -25,6 +27,8 @@ namespace Game.Throwables
 
                 _throwablesPrefabs.Add(prefab.ThrowableType, throwable);
             }
+
+            _parent = parent;
         }
 
         public List<Throwable> CreatePool(ThrowableType throwableType)
@@ -33,7 +37,7 @@ namespace Game.Throwables
 
             for (int i = 0; i < _data.PoolSize; i++)
             {
-                Throwable throwable = Object.Instantiate(_throwablesPrefabs[throwableType]);
+                Throwable throwable = Object.Instantiate(_throwablesPrefabs[throwableType], _parent);
                 throwable.gameObject.SetActive(false);
 
                 pool.Add(throwable);

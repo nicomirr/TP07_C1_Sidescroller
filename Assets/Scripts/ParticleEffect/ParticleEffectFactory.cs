@@ -7,11 +7,13 @@ namespace Game.ParticleEffects
 {
     public class ParticleEffectFactory
     {
+        private readonly Transform _parent;
+
         private readonly ParticleEffectFactoryDataSo _data;
 
         private readonly Dictionary<ParticleEffectType, ParticleSystem> _particleSystemPrefabs = new();
 
-        public ParticleEffectFactory(ParticleEffectFactoryDataSo data)
+        public ParticleEffectFactory(ParticleEffectFactoryDataSo data, Transform parent)
         {
             _data = data;
 
@@ -19,6 +21,8 @@ namespace Game.ParticleEffects
             {                
                 _particleSystemPrefabs.Add(prefab.ParticleEffectType, prefab.ParticleSystemPrefab);
             }
+
+            _parent = parent;
         }
 
         public List<ParticleSystem> CreatePool(ParticleEffectType particleEffectType)
@@ -27,7 +31,7 @@ namespace Game.ParticleEffects
 
             for (int i = 0; i < _data.PoolSize; i++)
             {
-                ParticleSystem particleSystem = Object.Instantiate(_particleSystemPrefabs[particleEffectType]);
+                ParticleSystem particleSystem = Object.Instantiate(_particleSystemPrefabs[particleEffectType], _parent);
                 particleSystem.Stop();
                 
                 pool.Add(particleSystem);

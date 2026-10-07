@@ -3,7 +3,7 @@ namespace Game.Core
     public enum ParticleEffectType
     {
         None = 0,
-        Impact,
+        RockImpact,
         End = 2
 
     }
