@@ -1,11 +1,9 @@
 using UnityEngine;
-using System.Collections.Generic;
 using Game.AnimationSystem;
 using Game.Audio;
 using Game.Core;
 using Game.Data;
 using Game.Marker;
-using Game.ParticleEffects;
 using Game.Throwables;
 
 namespace Game.Player
@@ -14,6 +12,8 @@ namespace Game.Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerConfigSo _data;
+
+        [SerializeField] private Transform _trowablesParent;
 
         private Rigidbody2D _rb;
 
@@ -52,7 +52,7 @@ namespace Game.Player
 
             _playerGravity = new PlayerGravity(_rb, _data);
 
-            ThrowableFactory throwableFactory = new ThrowableFactory(_data.ThrowablesFactoryData, GetComponentInChildren<ThrowablesPoolMarker>().transform);
+            ThrowableFactory throwableFactory = new ThrowableFactory(_data.ThrowablesFactoryData, _trowablesParent);
 
             ThrowablePool throwablePool = new ThrowablePool(throwableFactory);
 
@@ -89,8 +89,11 @@ namespace Game.Player
             _playerAnimationEvents.OnThrowFinished -= HandleThrowFinished;
 
             _playerGroundCheck.OnJustLanded -= HandleLand;
+        }
 
-            _playerInputs.Deinitialize();
+        private void OnDestroy()
+        {
+            _playerInputs.Deinitialize();            
         }
 
         private void HandlePlayerDirection()

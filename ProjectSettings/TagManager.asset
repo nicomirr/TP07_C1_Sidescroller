@@ -47,5 +47,8 @@ TagManager:
   - name: Throwable
     uniqueID: 1324166857
     locked: 0
+  - name: Test
+    uniqueID: 631272031
+    locked: 0
   m_RenderingLayers:
   - Default

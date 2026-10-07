@@ -1,7 +1,5 @@
 using UnityEngine;
 using Game.Data;
-using Game.Core;
-using Game.AnimationSystem;
 
 namespace Game.Player
 {

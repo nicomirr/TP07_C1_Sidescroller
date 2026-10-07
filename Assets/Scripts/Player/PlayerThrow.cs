@@ -2,7 +2,6 @@ using UnityEngine;
 using Game.Core;
 using Game.Data;
 using Game.Throwables;
-using System;
 
 
 namespace Game.Player

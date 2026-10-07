@@ -10,12 +10,14 @@ namespace Game.Throwables
         [SerializeField] private ThrowableDataSo _data;
 
         private Rigidbody2D _rb;
+        private Collider2D _collider;
 
         private float _throwableTimer;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
         }
 
         private void OnEnable()
@@ -39,10 +41,15 @@ namespace Game.Throwables
             _rb.linearVelocity = new Vector2(throwerVelocity.x + (Mathf.Sign(direction) * _data.HorizontalSpeed), _data.VerticalSpeed);
         }
 
-        public void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            CommandBus.Send(new PlayParticleEffectCommand(ParticleEffectType.RockImpact, this.transform.position));
-            this.gameObject.SetActive(false);
+            ColliderDistance2D distance = _collider.Distance(collision);
+
+            Vector2 impactPoint = distance.pointB;
+
+            CommandBus.Send(new PlayParticleEffectCommand(ParticleEffectType.RockImpact, impactPoint));
+
+            gameObject.SetActive(false);
         }
     }
 }
