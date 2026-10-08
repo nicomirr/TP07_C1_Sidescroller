@@ -1,5 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Game.Data;
+using Game.Core;
 
 namespace Game.Enemy
 {
@@ -31,6 +33,24 @@ namespace Game.Enemy
         private void OnDisable()
         {
             _enemyHealth.OnHealthChanged -= _UIHealth.UpdateHealth;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            MonoBehaviour[] components = collision.GetComponents<MonoBehaviour>();
+
+            IDamageProvider damageProvider = null;
+
+            foreach (MonoBehaviour component in components)
+            {
+                damageProvider = component as IDamageProvider;
+
+                if (damageProvider != null) break;
+            }
+
+            if (damageProvider == null) return;
+
+            _enemyHealth.TakeDamage(damageProvider.Damage);            
         }
     }
 

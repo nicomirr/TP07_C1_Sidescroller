@@ -5,9 +5,10 @@ using Game.ParticleEffects;
 
 namespace Game.Throwables
 {
-    public class Throwable : MonoBehaviour
+    public class Throwable : MonoBehaviour, IDamageProvider
     {
         [SerializeField] private ThrowableDataSo _data;
+        public float Damage => _data.Damage;
 
         private Rigidbody2D _rb;
         private Collider2D _collider;

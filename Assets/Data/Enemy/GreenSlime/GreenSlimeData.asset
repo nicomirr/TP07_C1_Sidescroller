@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GreenSlimeData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.EnemyDataSo
   _movementData: {fileID: 11400000, guid: ddffd8072d5ff7a46a62f9cdcfa09991, type: 2}
+  _maxHealth: 2
