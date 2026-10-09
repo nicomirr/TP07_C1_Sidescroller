@@ -11,6 +11,9 @@ namespace Game.Data
 
         [SerializeField] private ParticleSystem _particleSystemPrefab;
         public ParticleSystem ParticleSystemPrefab => _particleSystemPrefab;
+
+        [SerializeField] private int _poolSize;
+        public int PoolSize => _poolSize;   
     }
 }
 

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 using Game.Data;
 using Game.Core;
 
@@ -13,16 +12,19 @@ namespace Game.Enemy
 
         private EnemyMovement _enemyMovement;
         private EnemyHealth _enemyHealth;
+        private EnemyDeath _enemyDeath;
 
         private void Awake()
         {
             _enemyMovement = EnemyBehaviourFactory.CreateMovement(_data.MovementData.MovementType, _data.MovementData.MovementSpeed, GetComponent<Rigidbody2D>());
             _enemyHealth = new EnemyHealth(_data);
+            _enemyDeath = new EnemyDeath(this.gameObject);
         }
 
         private void OnEnable()
         {
             _enemyHealth.OnHealthChanged += _UIHealth.UpdateHealth;
+            _enemyHealth.OnHealthChanged += _enemyDeath.HandleDeath;
         }
 
         private void FixedUpdate()
@@ -33,6 +35,7 @@ namespace Game.Enemy
         private void OnDisable()
         {
             _enemyHealth.OnHealthChanged -= _UIHealth.UpdateHealth;
+            _enemyHealth.OnHealthChanged -= _enemyDeath.HandleDeath;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

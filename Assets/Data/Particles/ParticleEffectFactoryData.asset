@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288e82d5cd1b23341931d717b23a0f49, type: 3}
   m_Name: ParticleEffectFactoryData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParticleEffectFactoryDataSo
-  _poolSize: 10
   _particleEffectPrefabs:
   - {fileID: 11400000, guid: 850323774376fdc46b4e72c40777adeb, type: 2}
+  - {fileID: 11400000, guid: b9f699cbad1f3ca4c8b10adbd7c52871, type: 2}

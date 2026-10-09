@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//VOLVERLA GENERICA PARA QUE LA USE CUALQUIERA
+
 public class UIEnemyHealth : MonoBehaviour
 {
     [SerializeField] private Image _fillImage;

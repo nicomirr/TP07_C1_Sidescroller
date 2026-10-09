@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6d5d572177db274384372952d749d4c, type: 3}
-  m_Name: RockImpact
+  m_Name: GreenSlimeDeath
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParticleEffectDataSo
-  _particleEffectType: 1
-  _particleSystemPrefab: {fileID: 4755681275756482203, guid: d406e60b9bdcb994dbd1bfbf467816d9, type: 3}
-  _poolSize: 8
+  _particleEffectType: 2
+  _particleSystemPrefab: {fileID: 4755681275756482203, guid: 8d73cbeed79bab047a156b287e5baa8c, type: 3}
+  _poolSize: 4
