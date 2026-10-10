@@ -1,17 +1,22 @@
 using UnityEngine;
+using System.Collections;
 using Game.AnimationSystem;
 using Game.Audio;
 using Game.Core;
 using Game.Data;
 using Game.Marker;
 using Game.Throwables;
+using Game.Common;
+using Game.UI;
 
 namespace Game.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, ICoroutineRunner
     {
         [SerializeField] private PlayerConfigSo _data;
+
+        [SerializeField] private UIHealth _UIHealth;
 
         [SerializeField] private Transform _trowablesParent;
 
@@ -20,6 +25,7 @@ namespace Game.Player
         private PlayerAnimationEvents _playerAnimationEvents; 
 
         private PlayerInputs _playerInputs;
+        private PlayerStateMachine _playerFsm;
         private AnimationHandler _animationHandler;
         private PlayerFacing _playerFacing;
         private PlayerMovement _playerMovement;
@@ -27,10 +33,15 @@ namespace Game.Player
         private PlayerGroundCheck _playerGroundCheck;
         private PlayerGravity _playerGravity;
         private PlayerThrow _playerThrow;
+        private Health _playerHealth;
+        private PlayerCollisionHandler _playerCollisionHandler;
+        private PlayerKnockback _knockback;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+
+            _playerFsm = new PlayerStateMachine(_data);
 
             _playerAnimationEvents = GetComponentInChildren<PlayerAnimationEvents>();
 
@@ -57,6 +68,18 @@ namespace Game.Player
             ThrowablePool throwablePool = new ThrowablePool(throwableFactory);
 
             _playerThrow = new PlayerThrow(throwablePool, GetComponentInChildren<ThrowableOriginMarker>().transform, _data);
+
+            _playerHealth = new Health(_data.HealthData);
+
+            GameObject playerImageObject = GetComponentInChildren<PlayerImageMarker>().gameObject;
+            PlayerSpriteFlicker spriteFlicker = new PlayerSpriteFlicker(playerImageObject.GetComponent<SpriteRenderer>());
+
+            PlayerKnockback knockback = new PlayerKnockback(_data, _rb);
+
+            PlayerDamageHandler damageHandler = new PlayerDamageHandler(_data, _playerHealth, knockback, spriteFlicker,
+                    audioPlayer, this, _playerFsm, gameObject);
+
+            _playerCollisionHandler = new PlayerCollisionHandler(_playerFsm, damageHandler);
         }
 
         private void OnEnable()
@@ -64,6 +87,8 @@ namespace Game.Player
             _playerAnimationEvents.OnThrowFinished += HandleThrowFinished;
 
             _playerGroundCheck.OnJustLanded += HandleLand;
+
+            _playerHealth.OnHealthChanged += _UIHealth.UpdateHealth;
         }
 
         private void FixedUpdate()
@@ -89,6 +114,8 @@ namespace Game.Player
             _playerAnimationEvents.OnThrowFinished -= HandleThrowFinished;
 
             _playerGroundCheck.OnJustLanded -= HandleLand;
+
+            _playerHealth.OnHealthChanged -= _UIHealth.UpdateHealth;
         }
 
         private void OnDestroy()
@@ -104,7 +131,10 @@ namespace Game.Player
 
         private void HandleJump()
         {
+            _playerGravity.UpdateGravity();
             _playerGroundCheck.UpdateGroundedState();
+
+            if (_playerFsm.CurrentState == PlayerState.Damaged) return;          
                         
             if (_playerInputs.JumpReleased && !_playerGroundCheck.IsGrounded)
                 _playerJump.CutJump();
@@ -114,8 +144,6 @@ namespace Game.Player
                 _playerJump.Jump();
                 _animationHandler.SetBool(AnimationType.PlayerIsJumping, true);        
             }
-
-            _playerGravity.UpdateGravity();
         }
 
         private void HandleLand()
@@ -125,6 +153,8 @@ namespace Game.Player
 
         private void HandleThrow()
         {
+            if (_playerFsm.CurrentState == PlayerState.Damaged) return;
+
             if (!_playerInputs.ThrowPressed || !_playerThrow.CanThrow) return;
 
             _animationHandler.SetBool(AnimationType.PlayerIsThrowing, true);
@@ -151,11 +181,27 @@ namespace Game.Player
 
         private void HandleMovement()
         {
+            if (_playerFsm.CurrentState == PlayerState.Damaged) return;
+
             _playerMovement.Move(_playerInputs.Direction);
 
             _animationHandler.SetBool(AnimationType.PlayerIsMoving, _playerInputs.Direction != 0);
-        }              
+        }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent(out IDamageProvider damageProvider))
+            {
+                float damageDirection = this.transform.position.x - collision.transform.position.x;
+
+                _playerCollisionHandler.HandleDamageCollision(collision.gameObject, damageProvider, damageDirection);                
+            }
+        }
+
+        public Coroutine RunCoroutine(IEnumerator routine)
+        {
+            return StartCoroutine(routine);
+        }
     }
 }
 

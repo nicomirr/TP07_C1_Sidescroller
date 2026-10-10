@@ -8,8 +8,11 @@ namespace Game.Data
         [SerializeField] private EnemyMovementDataSo _movementData;
         public EnemyMovementDataSo MovementData => _movementData;
 
-        [SerializeField] private float _maxHealth;
-        public float MaxHealth => _maxHealth;
+        [SerializeField] private HealthDataSo _healthData;
+        public HealthDataSo HealthData => _healthData;
+
+        [SerializeField] private float _contactDamage;
+        public float ContactDamage => _contactDamage;   
     }
 
 }

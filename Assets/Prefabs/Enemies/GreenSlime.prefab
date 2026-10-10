@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 5533630767850840099}
   - component: {fileID: 1806318119660556057}
   - component: {fileID: 7411371912821241212}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GreenSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,8 +296,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2026397672440680592}
   - {fileID: 5000428993937880552}
+  - {fileID: 2026397672440680592}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5533630767850840099
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b223cf77dafd0534a8f8ce0a77b63002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  _UIHealth: {fileID: 0}
+  _UIHealth: {fileID: 211559693821625977}
   _data: {fileID: 11400000, guid: 87ae1e82c3cbbe44ab5140004c0fe5c8, type: 2}
 --- !u!61 &1806318119660556057
 BoxCollider2D:
@@ -472,6 +472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026397672440680592}
   - component: {fileID: 211559693821625977}
+  - component: {fileID: 8643486477937977985}
   - component: {fileID: 4228903375090926445}
   - component: {fileID: 2372216735701606352}
   - component: {fileID: 5735525391021288129}
@@ -516,7 +517,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3905c185cb6284aafd6ff8fa9a2748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIEnemyHealth
-  _fillImage: {fileID: 0}
+  _data: {fileID: 11400000, guid: f5c5a8ddad5702143bb9e31851fc6fd8, type: 2}
+  _fillImage: {fileID: 8322534684185116846}
+--- !u!225 &8643486477937977985
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215404428077062333}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!223 &4228903375090926445
 Canvas:
   m_ObjectHideFlags: 0

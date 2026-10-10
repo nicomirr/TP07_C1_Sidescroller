@@ -30,11 +30,11 @@ namespace Game.Data
         [SerializeField] private DamageFlickerDataSo _damageFlickerData;
         public DamageFlickerDataSo DamageFlickerData => _damageFlickerData;
 
-        [SerializeField] private int _maxHealth;
-        public int MaxHealth => _maxHealth;
+        [SerializeField] private HealthDataSo _healthData;
+        public HealthDataSo HealthData => _healthData;
 
-        [SerializeField] private int _maxInitialHealth;
-        public int MaxInitialHealth => _maxInitialHealth;
+        [SerializeField] private KnockbackDataSo _knockbackData;
+        public KnockbackDataSo KnockbackData => _knockbackData;
 
         [SerializeField] private GravityDataSo _gravityData;
         public GravityDataSo GravityData => _gravityData;
